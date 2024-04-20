@@ -140,7 +140,7 @@ export default function Form() {
     }
   }
 
-  if (!name && loading) return <ClipLoader size={25} />;
+  if (!name && loading) return <div className={styles.loading_div}> <ClipLoader size={25} /> </div>;
 
   return (
     <>
