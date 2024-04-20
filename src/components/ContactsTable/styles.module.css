@@ -1,0 +1,85 @@
+.table {
+  width: 300px;
+  background-color: var(--light-gray);
+  margin: 5% auto;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.tr {
+  position: relative;
+}
+
+.num {
+  text-align: right;
+  border-right: none;
+}
+
+.responsive_div {
+  padding: 0px 10px;
+  overflow-x: auto;
+}
+
+.loading_div {
+  margin: 5% auto;
+  width: 100%;
+  text-align: center;
+}
+
+.div_actions {
+  width: 90px;
+  position: absolute;
+  top: -3px;
+  /* bottom: -1px; */
+  /* background-color: red; */
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit {
+  background-color: var(--light-blue);
+  box-sizing: content-box;
+  padding: 2px 3px;
+  border-radius: 2px;
+}
+
+.edit:hover {
+  background-color: #ababab;
+}
+
+.hidden {
+  border-left: none;
+}
+
+.edit_a {
+  color: #000;
+}
+
+.delete {
+  background-color: #ff8383;
+  box-sizing: content-box;
+  padding: 2px 3px;
+  border-radius: 2px;
+}
+
+.delete:hover {
+  background-color: #f73737;
+  cursor: pointer;
+}
+
+.svg {
+  font-size: 20px;
+}
+
+.th {
+  border-right: none;
+}
+
+.main_p {
+  margin-top: 5%;
+  text-align: center;
+}
