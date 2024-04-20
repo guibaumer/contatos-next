@@ -28,6 +28,7 @@ export default function Form() {
     const id = params.get('id');
 
     if (id) {
+      setLoading(true);
       handleEdition(id);
       setIsEdition(true);
     }
@@ -45,14 +46,16 @@ export default function Form() {
 
     const { message, contact } = await response.json();
 
-          if (!response.ok) {
-            toast.error(message);
-          } else {
-            setName(contact.name);
-            setLastname(contact.lastname);
-            setNumber(contact.number);
-            setContactId(contact._id)
-          }
+    if (!response.ok) {
+      toast.error(message);
+    } else {
+      setName(contact.name);
+      setLastname(contact.lastname);
+      setNumber(contact.number);
+      setContactId(contact._id)
+    }
+
+    setLoading(false);
 
   }
 
@@ -156,7 +159,7 @@ export default function Form() {
 
   return (
     <>
-      <h2>Criar contato</h2>
+      <h2>{isEdition ? 'Editar' : 'Criar contato'}</h2>
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <input type="text" placeholder="Nome" className={styles.input} value={name} onChange={e => setName(e.target.value)} />
