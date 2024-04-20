@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--purple);
+  background-color: var(--darkest-purple);
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -8,12 +8,12 @@
 
 .h1 {
   font-size: var(--extra-font-size);
-  color: var(--light-blue);
+  color: var(--white-color);
   transition: .2s;
 }
 
 .h1:hover {
-  color: var(--darkest-purple);
+  color: var(--purple);
 }
 
 .header_div {
