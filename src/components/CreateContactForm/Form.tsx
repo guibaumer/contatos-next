@@ -19,7 +19,7 @@ export default function Form() {
   const [lastname, setLastname] = useState('');
   const [number, setNumber] = useState('');
   const [contactId, setContactId] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [isEdition, setIsEdition] = useState(false);
   const router = useRouter();
   const regex = /[^0-9\s]/;
@@ -49,14 +49,13 @@ export default function Form() {
     if (!response.ok) {
       toast.error(message);
     } else {
-      setName(contact.name);
-      setLastname(contact.lastname);
       setNumber(contact.number);
+      setLastname(contact.lastname);
+      setName(contact.name);
       setContactId(contact._id)
     }
 
     setLoading(false);
-
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -79,7 +78,6 @@ export default function Form() {
               credentials: 'include',
             });
           } else {
-            console.log(contactId);
             response = await fetch(`${API_URL}/contacts`, {
               method: 'PUT',
               headers: {
@@ -135,27 +133,14 @@ export default function Form() {
   const checkTelephone = (tel: string) => {
     tel = tel.replace(/\s+/g, "");
 
-    console.log(tel.length);
-
     if (tel.length === 10 || tel.length === 11) {
       return true
+    } else {
+      return false;
     }
-
-    return false;
-    // let res;
-    // if (tel.length === 12) {
-    //   if (numberRegex.test(tel)) {
-    //     res = tel.replace(/(\d{2})(\d{5})-(\d{4})/, "($1) $2-$3");
-    //   } else {
-    //     return false;
-    //   }
-    // } else if (tel.length === 11) {
-    //   res = tel.replace(/(\d{2})(\d{4})-(\d{4})/, "($1) 9$2-$3");
-    // } else {
-    //   return false;
-    // }
-    // return res;
   }
+
+  if (!name && loading) return <ClipLoader size={25} />;
 
   return (
     <>
