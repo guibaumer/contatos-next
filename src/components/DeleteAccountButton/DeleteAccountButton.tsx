@@ -12,8 +12,6 @@ export default function DeleteAccountButton() {
   const { username, userId, logout, setId, setName } = useAuth();
   const router = useRouter();
 
-  console.log(username, userId)
-
   const handleClick = async () => {
     if (!confirm) return setConfirm(true);
 
