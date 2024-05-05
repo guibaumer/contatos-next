@@ -59,7 +59,7 @@ export default function Contacts() {
   return (
     <div className={styles.responsive_div}>
       {
-        list.length ? (
+        list.length && (
           <table className={styles.table}>
             <thead>
               <tr>
@@ -97,10 +97,9 @@ export default function Contacts() {
               }
             </tbody>
           </table>
-        ) : (
-          <p className={styles.main_p}>Faça login para criar, ver e editar seus contatos!</p>
         )
       }
+      { !isLoggedIn && <p className={styles.main_p}>Faça login para criar, ver e editar seus contatos!</p> }
     </div>
   )
 }

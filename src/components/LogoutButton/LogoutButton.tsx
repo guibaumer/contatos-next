@@ -2,9 +2,11 @@ import { API_URL } from "../../../config/app-config";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "react-toastify";
 import styles from './styles.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function LogoutButton() {
     const { logout } = useAuth();
+    const router = useRouter();
 
     async function handleLogout() {
         try {
@@ -23,6 +25,7 @@ export default function LogoutButton() {
         } else {
             toast.success(message);
             logout();
+            router.push('/');
         }
 
         } catch (err) {
